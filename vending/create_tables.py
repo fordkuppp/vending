@@ -1,4 +1,5 @@
-from vending import app, db
+from vending import app
+from vending.models import db
 
 
 with app.app_context():

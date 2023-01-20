@@ -12,7 +12,6 @@ app.config.from_mapping(
 
 models.db.init_app(app)
 
-api.add_resource(Hello, '/')
 api.add_resource(MachineApi, '/machine')
 
 if __name__ == "__main__":
