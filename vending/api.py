@@ -1,6 +1,6 @@
 from flask_restful import Resource, Api, reqparse
-from flask_sqlalchemy import SQLAlchemy
 from vending import models
+from flask import jsonify
 
 
 parser = reqparse.RequestParser()
@@ -16,13 +16,7 @@ product_parser.add_argument('quantity', type=int)
 product_parser.add_argument('price', type=float)
 
 
-class Hello(Resource):
-    def get(self):
-        return {'task': 'Say "Hello, World!"'}
-
-
 class MachineApi(Resource):
     def get(self):
-        return models.Machine.id
-
-
+        machines = models.Machine.query.all()
+        return jsonify(machines)
