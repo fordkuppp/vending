@@ -1,5 +1,7 @@
 from flask_restful import Resource, Api, reqparse
-from vending.models import Machine, Product, Category, ProductCategory
+from flask_sqlalchemy import SQLAlchemy
+from vending import models
+
 
 parser = reqparse.RequestParser()
 parser.add_argument('id', type=int)
@@ -21,4 +23,6 @@ class Hello(Resource):
 
 class MachineApi(Resource):
     def get(self):
-        return Machine.id
+        return models.Machine.id
+
+
