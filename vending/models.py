@@ -18,6 +18,12 @@ class Machine(db.Model):
 
 @dataclass
 class Product(db.Model):
+    id: int
+    machine_id: int
+    name: str
+    quantity: int
+    price: float
+
     id = db.Column(db.Integer, primary_key=True)
     machine_id = db.Column(db.Integer, db.ForeignKey(Machine.id))
     name = db.Column(db.String(255))
@@ -27,11 +33,17 @@ class Product(db.Model):
 
 @dataclass
 class Category(db.Model):
+    id: int
+    name: str
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
 
 
 @dataclass
 class ProductCategory(db.Model):
+    product_id: int
+    category_id: int
+
     product_id = db.Column(db.Integer, db.ForeignKey(Product.id), primary_key=True)
     category_id = db.Column(db.Integer, db.ForeignKey(Category.id))
