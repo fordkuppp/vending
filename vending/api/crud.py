@@ -1,8 +1,7 @@
+from flask import jsonify
 from flask_restful import Resource, reqparse
-# TODO: from flask_restful_swagger import swagger
 
 from vending.models import *
-from flask import jsonify
 
 parser = reqparse.RequestParser()
 parser.add_argument('id', type=int, location='form')
