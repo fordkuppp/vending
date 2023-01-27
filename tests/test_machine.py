@@ -1,10 +1,13 @@
-import unittest
+from vending import app
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+def test_all_machines():
+    response = app.test_client().get('/api/machines')
+    assert response.status_code == 500
 
-
-if __name__ == '__main__':
-    unittest.main()
+def test_post_machines():
+    response = app.test_client().post('/api/machine/<int:machine_id>', json={
+        "building_num": "99",
+        "floor": "88"
+    })
+    assert response.status_code == 200
