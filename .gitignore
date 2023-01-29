@@ -1,0 +1,4 @@
+﻿.idea
+.coverage
+coverage.xml
+*__pycache__
