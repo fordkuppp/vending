@@ -65,9 +65,12 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-      - name: Install dependencies
+      - name: Install poetry dependencies
         if: steps.poetry-cache.outputs.cache-hit != 'true'
         run: poetry install
+      - name: Install python requirements
+        run: |
+          pip install -r requirements.txt
       - name: Create tables
         run: |
           python create_tables.py
