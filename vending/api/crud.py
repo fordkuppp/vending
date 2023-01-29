@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_restful import Resource, reqparse
 
-from vending.models import *
+from vending.models import Category, Machine, Product, db
 
 parser = reqparse.RequestParser()
 parser.add_argument("id", type=int, location="form")
