@@ -1,4 +1,7 @@
 # Vending Machine Tracking APIs
+![build](https://github.com/fordkuppp/vending/actions/workflows/build.yml/badge.svg)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=fordkuppp_vending&metric=coverage)](https://sonarcloud.io/summary/new_code?id=fordkuppp_vending)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=fordkuppp_vending&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=fordkuppp_vending)
 
 ## Instruction
 
