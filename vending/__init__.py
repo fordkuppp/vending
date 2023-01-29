@@ -9,7 +9,7 @@ app = Flask(__name__, instance_relative_config=True)
 api = Api(app, prefix="/api")
 app.config.from_mapping(
     SECRET_KEY=";)",
-    SQLALCHEMY_DATABASE_URI="mysql://root:password@localhost:3306/vending-db",
+    SQLALCHEMY_DATABASE_URI="mysql://root:root@localhost:3306/vending-db",
 )
 
 models.db.init_app(app)
