@@ -1,8 +1,13 @@
-# import pytest
-# from vending import create_app
-#
-#
-# @pytest.fixture()
-# def app():
-#
-#     return app.test_client()
+import pytest
+
+import vending
+
+
+@pytest.fixture
+def app():
+    return vending.app
+
+
+@pytest.fixture
+def models():
+    return vending.models

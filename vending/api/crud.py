@@ -27,7 +27,7 @@ class MachineApi(Resource):
     def delete(self, machine_id: int):
         Machine.query.filter(Machine.id == machine_id).delete()
         db.session.commit()
-        return {'status': '204'}, 204
+        return '', 204
 
     def put(self, machine_id: int):
         machine = db.session.query(Machine).filter(Machine.id == machine_id).one()
@@ -35,7 +35,7 @@ class MachineApi(Resource):
         machine.floor = args['floor']
         machine.building_num = args['building']
         db.session.commit()
-        return {'status': '204'}, 204
+        return jsonify(machine)
 
     def post(self):
         args = machine_parser.parse_args()
@@ -43,7 +43,7 @@ class MachineApi(Resource):
                               floor=args['floor'])
         db.session.add(new_machine)
         db.session.commit()
-        return {'status': '201'}, 201
+        return jsonify(new_machine)
 
 
 class ProductApi(Resource):
@@ -54,7 +54,7 @@ class ProductApi(Resource):
     def delete(self, product_id: int):
         Product.query.filter(Product.id == product_id).delete()
         db.session.commit()
-        return {'status': '204'}, 204
+        return '', 204
 
     def put(self, product_id: int):
         product = db.session.query(Product).filter(Product.id == product_id).one()
@@ -63,14 +63,14 @@ class ProductApi(Resource):
         product.quantity = args['quantity']
         product.price = args['price']
         db.session.commit()
-        return {'status': '204'}, 204
+        return jsonify(product)
 
     def post(self):
         args = product_parser.parse_args()
         new_product = Product(name=args['name'])
         db.session.add(new_product)
         db.session.commit()
-        return {'status': '201'}, 201
+        return jsonify(new_product)
 
 
 class CategoryApi(Resource):
@@ -81,21 +81,21 @@ class CategoryApi(Resource):
     def delete(self, category_id: int):
         Category.query.filter(Category.id == category_id).delete()
         db.session.commit()
-        return {'status': '204'}, 204
+        return '', 204
 
     def put(self, category_id: int):
         category = db.session.query(Category).filter(Category.id == category_id).one()
         args = category_parser.parse_args()
         category.name = args['name']
         db.session.commit()
-        return {'status': '204'}, 204
+        return jsonify(category)
 
     def post(self):
         args = category_parser.parse_args()
         new_category = Category(name=args['name'])
         db.session.add(new_category)
         db.session.commit()
-        return {'status': '201'}, 201
+        return jsonify(new_category)
 
 
 class AllMachineApi(Resource):
