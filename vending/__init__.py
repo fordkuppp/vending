@@ -2,7 +2,14 @@ from flask import Flask
 from flask_restful import Api
 
 from vending import models
-from vending.api.crud import AllCategoryApi, AllMachineApi, AllProductApi, CategoryApi, MachineApi, ProductApi
+from vending.api.crud import (
+    AllCategoryApi,
+    AllMachineApi,
+    AllProductApi,
+    CategoryApi,
+    MachineApi,
+    ProductApi,
+)
 
 # create and configure the app
 app = Flask(__name__, instance_relative_config=True)
