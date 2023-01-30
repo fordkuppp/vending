@@ -4,10 +4,10 @@ import vending
 
 
 @pytest.fixture
-def app():
+def app() -> vending.app:
     return vending.app
 
 
 @pytest.fixture
-def models():
+def models() -> vending.models:
     return vending.models

@@ -23,15 +23,11 @@ repos:
   - repo: https://github.com/psf/black
     rev: 22.6.0
     hooks:
-    -   id: black
-    # https://github.com/psf/black/issues/438#issuecomment-522114098
-        exclude: ^.+\/migrations\/.+
+    - id: black
+      # https://github.com/psf/black/issues/438#issuecomment-522114098
+      exclude: ^.+\/migrations\/.+
 
   - repo: https://github.com/psf/black
     rev: 22.6.0
     hooks:
       - id: black-jupyter
-  - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
-    hooks:
-    - id: isort
