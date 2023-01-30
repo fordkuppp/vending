@@ -27,7 +27,7 @@ class MachineApi(Resource):
     def delete(self, machine_id: int) -> Response:
         Machine.query.filter(Machine.id == machine_id).delete()
         db.session.commit()
-        return "", 204
+        return Response(response="", status=204)
 
     def put(self, machine_id: int) -> Response:
         machine = db.session.query(Machine).filter(Machine.id == machine_id).one()
@@ -53,7 +53,7 @@ class ProductApi(Resource):
     def delete(self, product_id: int) -> Response:
         Product.query.filter(Product.id == product_id).delete()
         db.session.commit()
-        return "", 204
+        return Response(response="", status=204)
 
     def put(self, product_id: int) -> Response:
         product = db.session.query(Product).filter(Product.id == product_id).one()
@@ -80,7 +80,7 @@ class CategoryApi(Resource):
     def delete(self, category_id: int) -> Response:
         Category.query.filter(Category.id == category_id).delete()
         db.session.commit()
-        return "", 204
+        return Response(response="", status=204)
 
     def put(self, category_id: int) -> Response:
         category = db.session.query(Category).filter(Category.id == category_id).one()
